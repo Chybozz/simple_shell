@@ -119,9 +119,9 @@ void find_cmd(info_t *info);
 void fork_cmd(info_t *info);
 
 /* toem_parser.c */
-int is_cmd(info_t *, char *);
-char *dup_chars(char *, int, int);
-char *find_path(info_t *, char *, char *);
+int isfile_cmd(info_t *info, char *path);
+char *dup_chars(char *pathstr, int sta, int stp);
+char *find_path(info_t *info, char *pathstr, char *cmd);
 
 /* loophsh.c */
 int loophsh(char **);
@@ -159,7 +159,7 @@ void ffree(char **pp);
 void *_realloc(void *ptr, unsigned int older_size, unsigned int newer_size);
 
 /* toem_memory.c */
-int bfree(void **);
+int ptr_free(void **ptr);
 
 /* toem_atoi.c */
 int interactive(info_t *);
@@ -213,18 +213,18 @@ int build_history_list(info_t *info, char *buf, int linecount);
 int renumber_history(info_t *info);
 
 /* toem_lists.c */
-list_t *add_node(list_t **, const char *, int);
-list_t *add_node_end(list_t **, const char *, int);
-size_t print_list_str(const list_t *);
-int delete_node_at_index(list_t **, unsigned int);
-void free_list(list_t **);
+list_t *add_node(list_t **head, const char *str, int val);
+list_t *add_node_end(list_t **head, const char *str, int val);
+size_t print_list_str(const list_t *k);
+int delete_node_at_index(list_t **head, unsigned int index);
+void free_list(list_t **head_ptr);
 
 /* toem_lists1.c */
-size_t list_len(const list_t *);
-char **list_to_strings(list_t *);
-size_t print_list(const list_t *);
-list_t *node_starts_with(list_t *, char *, char);
-ssize_t get_node_index(list_t *, list_t *);
+size_t list_len(const list_t *k);
+char **list_to_strings(list_t *head);
+size_t print_list(const list_t *k);
+list_t *node_starts_with(list_t *node, char *prefix, char c);
+ssize_t get_node_index(list_t *head, list_t *node);
 
 /* toem_vars.c */
 int is_chain(info_t *info, char *buff, size_t *s);

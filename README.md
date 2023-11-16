@@ -1,2 +1,2 @@
 0x16. C - Simple Shell
-ALX project
+ALX project / group project

@@ -127,9 +127,9 @@ char *find_path(info_t *info, char *pathstr, char *cmd);
 int loophsh(char **);
 
 /* toem_errors.c */
-void _eputs(char *);
-int _eputchar(char);
-int _putfd(char c, int fd);
+void _eputs(char *str);
+int _eputchar(char chr);
+int _putfd(char chr, int fd);
 int _putsfd(char *str, int fd);
 
 /* toem_string.c */
@@ -162,26 +162,26 @@ void *_realloc(void *ptr, unsigned int older_size, unsigned int newer_size);
 int ptr_free(void **ptr);
 
 /* toem_atoi.c */
-int interactive(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
-int _atoi(char *);
+int interactive(info_t *nfo);
+int is_delim(char chr, char *delim);
+int _isalpha(int chr);
+int _atoi(char *stc);
 
 /* toem_errors1.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+int _erratoi(char *strg);
+void print_error(info_t *info, char *estr);
+int print_d(int input, intfd);
+char *convert_number(long int num, int base, int flags);
+void remove_comments(char *buf);
 
 /* toem_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int _myexit(info_t *info);
+int _mycd(info_t *info);
+int _myhelp(info_t *info);
 
 /* toem_builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+int _myhistory(info_t *info);
+int _myalias(info_t *info);
 
 /*toem_getline.c */
 ssize_t get_input(info_t *info);
@@ -194,11 +194,11 @@ void set_info(info_t *info, char **av);
 void free_info(info_t *info, int all);
 
 /* toem_environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+char *_getenv(info_t *info, const char *nm);
+int _myenv(info_t *info);
+int _mysetenv(info_t *info);
+int _myunsetenv(info_t *info);
+int populate_env_list(info_t *info);
 
 /* toem_getenv.c */
 char **get_environ(info_t *info);

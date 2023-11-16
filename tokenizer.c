@@ -42,8 +42,10 @@ char **strtow(char *str, char *del)
 		}
 		m = 0;
 		while (m < k)
+		{
 			s[j][m] = str[i++];
 			m++;
+		}
 		s[j][m] = 0;
 	}
 	s[j] = NULL;
@@ -89,8 +91,10 @@ char **strtow2(char *str, char del)
 		}
 		m = 0;
 		while (m < k)
+		{
 			s[j][m] = str[i++];
 			m++;
+		}
 		s[j][m] = 0;
 	}
 	s[j] = NULL;

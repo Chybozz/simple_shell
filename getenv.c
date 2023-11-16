@@ -33,7 +33,7 @@ int _unsetenv(info_t *info, char *var)
 	if (node == NULL || var == NULL)
 		return (0);
 
-	for (node = info->env; i = 0; node; node = node->next; i++)
+	while (node)
 	{
 		p = starts_with(node->str, var);
 		if (p && *p == '=')
@@ -43,6 +43,8 @@ int _unsetenv(info_t *info, char *var)
 			node = info->env;
 			continue;
 		}
+		node = node->next;
+		i++;
 	}
 	return (info->env_changed);
 }

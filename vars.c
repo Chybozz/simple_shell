@@ -61,7 +61,7 @@ void check_chain(info_t *info, char *buff, size_t *s, size_t i, size_t len)
 	{
 		if (!info->status)
 		{
-			buf[i] = 0;
+			buff[i] = 0;
 			j = len;
 		}
 	}

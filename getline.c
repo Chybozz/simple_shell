@@ -129,8 +129,10 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	if (pr && length)
 		z = *length;
 	if (i == len)
+	{
 		len = 0;
 		i = len;
+	}
 
 	r = read_buf(info, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))

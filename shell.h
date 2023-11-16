@@ -46,6 +46,7 @@ extern char **environ;
 typedef struct liststr
 {
 	int num;
+	int vals;
 	char *str;
 	struct liststr *next;
 } list_t;
@@ -170,7 +171,7 @@ int _atoi(char *stc);
 /* toem_errors1.c */
 int _erratoi(char *strg);
 void print_error(info_t *info, char *estr);
-int print_d(int input, intfd);
+int print_d(int input, int fd);
 char *convert_number(long int num, int base, int flags);
 void remove_comments(char *buf);
 
@@ -213,8 +214,8 @@ int build_history_list(info_t *info, char *buf, int linecount);
 int renumber_history(info_t *info);
 
 /* toem_lists.c */
-list_t *add_node(list_t **head, const char *str, int val);
-list_t *add_node_end(list_t **head, const char *str, int val);
+list_t *add_node(list_t **head, const char *str, int vals);
+list_t *add_node_end(list_t **head, const char *str, int vals);
 size_t print_list_str(const list_t *k);
 int delete_node_at_index(list_t **head, unsigned int index);
 void free_list(list_t **head_ptr);
